@@ -4,7 +4,7 @@ An example [Hyperapp](https://hyperapp.js.org/) application that shows how to us
 
 This approach demonstrates how to build a Hyperapp-focused application with the [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/). Using [esri-loader](https://github.com/Esri/esri-loader) makes the whole development process straightforward and enjoyable.
 
-<!-- **PROOF:** [view demo](https://jwasilgeo.github.io/esri-riot-example/) -->
+**PROOF:** [view demo](https://jwasilgeo.github.io/esri-hyperapp-example/)
 
 **NOTE:** There's several code comments that will interest you about potential alternate approaches and caveats when managing both Hyperapp "state" and ArcGIS API "state". Go read about it in [`index.html`](https://github.com/jwasilgeo/esri-hyperapp-example/blob/master/index.js).
 

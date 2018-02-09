@@ -4,7 +4,7 @@
   "description": "An example Hyperapp application that shows how to use esri-loader to create a custom map view and component.",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url ./"
+    "build": "parcel build index.html --out-dir docs --public-url ./"
   },
   "author": "Jacob Wasilkowski (https://jwasilgeo.github.io/)",
   "license": "Apache-2.0",
