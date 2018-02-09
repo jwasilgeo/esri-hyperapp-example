@@ -1,0 +1,19 @@
+{
+  "name": "esri-hyperapp-example",
+  "version": "1.0.0",
+  "description": "An example Hyperapp application that shows how to use esri-loader to create a custom map view and component.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./"
+  },
+  "author": "Jacob Wasilkowski (https://jwasilgeo.github.io/)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "esri-loader": "^2.2.0",
+    "hyperapp": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "parcel-bundler": "^1.5.1"
+  }
+}
