@@ -6,7 +6,7 @@ This approach demonstrates how to build a Hyperapp-focused application with the 
 
 **PROOF:** [view demo](https://jwasilgeo.github.io/esri-hyperapp-example/)
 
-**NOTE:** There's several code comments that will interest you about potential alternate approaches and caveats when managing both Hyperapp "state" and ArcGIS API "state". Go read about it in [`index.html`](https://github.com/jwasilgeo/esri-hyperapp-example/blob/master/index.js).
+**NOTE:** There's several code comments that will interest you about potential alternate approaches and caveats when managing both Hyperapp "state" and ArcGIS API "state". Go read about it in [`index.js`](https://github.com/jwasilgeo/esri-hyperapp-example/blob/master/index.js).
 
 [Parcel](https://parceljs.org/) is also used here, and as it turns out, _Parcel is super awesome_. After you `npm install`, you can simply use `npm run start` and `npm run build`.
 
