@@ -15,3 +15,5 @@ This approach demonstrates how to build a Hyperapp-focused application with the 
 - [Hyperapp + Parcel = 😎](https://blog.daftcode.pl/hyperapp-parcel-71823bd93f1c), Adam Boro 2018
 - [Hyperapp docs](https://github.com/hyperapp/hyperapp/blob/master/README.md)
 - [Parcel docs](https://parceljs.org/)
+
+[![screenshot](https://raw.githubusercontent.com/jwasilgeo/esri-hyperapp-example/master/screenshot.png)](https://jwasilgeo.github.io/esri-hyperapp-example/)
