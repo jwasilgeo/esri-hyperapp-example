@@ -10,7 +10,7 @@ This approach demonstrates how to build a Hyperapp-focused application with the 
 
 [Parcel](https://parceljs.org/) is also used here, and as it turns out, _Parcel is super awesome_. After you `npm install`, you can simply use `npm run start` and `npm run build`.
 
-### Cobbled together with inspiration and guidance from:
+## Cobbled together with inspiration and guidance from
 
 - [Hyperapp + Parcel = 😎](https://blog.daftcode.pl/hyperapp-parcel-71823bd93f1c), Adam Boro 2018
 - [Hyperapp docs](https://github.com/hyperapp/hyperapp/blob/master/README.md)

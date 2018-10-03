@@ -29,10 +29,12 @@ const EsriMapView = ({
     // oncreate is fired after the element is created and attached to the DOM
     oncreate: (element) => {
       // use esri-loader to load required css
-      loadCss('https://js.arcgis.com/4.6/esri/css/view.css');
+      loadCss('https://js.arcgis.com/4.9/esri/css/view.css');
 
       // use esri-loader to load ArcGIS API modules to create an instance of a MapView
-      loadModules(['esri/Map', 'esri/views/MapView'])
+      loadModules(['esri/Map', 'esri/views/MapView'], {
+        url: 'https://js.arcgis.com/4.9/'
+      })
         .then(([Map, MapView]) => {
           const mapView = new MapView({
             container: element,
@@ -75,69 +77,70 @@ const view = (state, actions) => {
       alignItems: 'center'
     }
   }, [
-    // h1 element with children elements  
-    h('h1', {}, [
-      h('span', {}, 'made with '),
+      // h1 element with children elements  
+      h('h1', {}, [
+        h('span', {}, 'made with '),
+        h('a', {
+          href: 'https://hyperapp.js.org/',
+          style: {
+            fontStyle: 'italic',
+            color: '#fff',
+            padding: '0.2rem',
+            border: '1px solid #fff',
+          }
+        }, 'Hyperapp'),
+        h('span', {}, ' and '),
+        h('a', {
+          href: 'https://github.com/Esri/esri-loader',
+          style: {
+            fontFamily: 'monospace',
+            fontSize: '1.25em',
+            color: '#fff',
+            padding: '0.2rem',
+            border: '1px solid #fff',
+          }
+        }, 'esri-loader'),
+      ]),
+
+      h('p', {}, 'This is an example Hyperapp application that shows how to use esri-loader to make a custom mapping component.'),
+
       h('a', {
-        href: 'https://hyperapp.js.org/',
         style: {
-          fontStyle: 'italic',
-          color: '#fff',
-          padding: '0.2rem',
-          border: '1px solid #fff',
-        }
-      }, 'Hyperapp'),
-      h('span', {}, ' and '),
-      h('a', {
-        href: 'https://github.com/Esri/esri-loader',
+          color: '#fff'
+        },
+        href: 'https://github.com/jwasilgeo/esri-hyperapp-example'
+      }, 'Take a look at the source code for more information.'),
+
+      // p element that displays some of the Hyperapp's current state
+      h('p', {
         style: {
           fontFamily: 'monospace',
-          fontSize: '1.25em',
-          color: '#fff',
-          padding: '0.2rem',
-          border: '1px solid #fff',
+          fontSize: '1.25em'
         }
-      }, 'esri-loader'),
-    ]),
+      }, `state: zoom ${state.zoom.toFixed(2)} | rotation ${state.rotation.toFixed(2)}`),
 
-    h('p', {}, 'This is an example Hyperapp application that shows how to use esri-loader to make a custom mapping component.'),
+      // EsriMapView component:
+      //  - its own HTML markup template begins with a div element
+      //  - this shows some contrived examples of setting initial ArcGIS "mapView" constructor values
+      h(EsriMapView, {
+        style: {
+          height: '50vh',
+          width: '80%',
+          border: '3px solid #fff'
+        },
+        // these are initial state values to create an ArcGIS API MapView instance
+        basemap: 'satellite',
+        center: [15, 65],
+        zoom: state.zoom,
+        rotation: state.rotation,
 
-    h('a', {
-      style: {
-        color: '#fff'
-      },
-      href: 'https://github.com/jwasilgeo/esri-hyperapp-example'
-    }, 'Take a look at the source code for more information.'),
-
-    // p element that displays some of the Hyperapp's current state
-    h('p', {
-      style: {
-        fontFamily: 'monospace',
-        fontSize: '1.25em'
-      }
-    }, `state: zoom ${state.zoom.toFixed(2)} | rotation ${state.rotation.toFixed(2)}`),
-
-    // EsriMapView component:
-    //  - its own HTML markup template begins with a div element
-    //  - this shows some contrived examples of setting initial ArcGIS "mapView" constructor values
-    h(EsriMapView, {
-      style: {
-        height: '50vh',
-        width: '80%',
-        border: '3px solid #fff'
-      },
-      // these are initial state values to create an ArcGIS API MapView instance
-      basemap: 'satellite',
-      center: [15, 65],
-      zoom: state.zoom,
-      rotation: state.rotation,
-
-      // these are actions to be communicated from the ArcGIS API "out" to Hyperapp's state
-      // every time the zoom and rotation properties change they will be communicated "out" to Hyperapp's state
-      zoomChange: actions.zoomChange,
-      rotationChange: actions.rotateChange
-    })
-  ]);
+        // these are actions to be communicated from the ArcGIS API "out" to Hyperapp's state
+        // every time the zoom and rotation properties change they will be communicated "out" to Hyperapp's state
+        zoomChange: actions.zoomChange,
+        rotationChange: actions.rotateChange
+      })
+    ]);
 };
+
 // Hyperapp entry point
 app(state, actions, view, document.body);
